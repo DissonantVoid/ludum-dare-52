@@ -14,6 +14,10 @@ config/name="LD52"
 run/main_scene="res://game/splash.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneManager="*res://autoloads/scene_manager.tscn"
+
 [display]
 
 window/size/width=1280
