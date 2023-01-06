@@ -83,7 +83,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 3
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "3d 10m 15s"
+text = "2d 22h 51m 53s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
