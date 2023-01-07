@@ -3,6 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 var speed = 500
 var accelerate = 2000
+onready var weapon = get_node("Roller")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,4 +21,5 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position() - $Position2D.position)
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	if Input.is_action_just_pressed("mouse_left"):
-		$AnimationPlayer.play("FlickWeapon")
+		weapon.extend_weapon()
+		Signalbus.emit_signal("bullet_fired", self)

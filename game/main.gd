@@ -2,6 +2,7 @@ extends Node2D
 
 const _asteroide_scene : PackedScene = preload("res://game/objects/asteroide.tscn")
 
+const _bullet_manager : PackedScene = preload("res://game/Bulletmanager.tscn")
 onready var _asteroides_container : Node2D = $Asteroides
 onready var _player : Node2D = $PlayerShip
 
@@ -15,7 +16,9 @@ var _rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	_rng.randomize()
-	
+	var bullet_manager = _bullet_manager.instance()
+	Signalbus.connect("bullet_fired", bullet_manager, "add_bullet")
+	add_child(bullet_manager)
 	for i in _start_asteroides:
 		_spawn_asteroide()
 

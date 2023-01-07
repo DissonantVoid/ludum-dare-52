@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/main.gd" type="Script" id=1]
 [ext_resource path="res://game/objects/enemy_star.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://game/objects/player_camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/Actors/PlayerShip.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/minimap.gd" type="Script" id=6]
+[ext_resource path="res://game/Actors/EnemyShip.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
@@ -72,5 +73,8 @@ position = Vector2( 335, 54 )
 [node name="DistanceDetectionTimer" type="Timer" parent="Asteroides"]
 wait_time = 2.0
 autostart = true
+
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( -6, 125 )
 
 [connection signal="timeout" from="Asteroides/DistanceDetectionTimer" to="." method="_on_asteroids_detection_timeout"]

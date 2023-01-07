@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Actor",
 "language": "GDScript",
 "path": "res://game/Actors/Actor.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "EnemyShip",
+"language": "GDScript",
+"path": "res://game/Actors/EnemyShip.gd"
+}, {
+"base": "Resource",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://game/Resources/Stats.gd"
 } ]
 _global_script_class_icons={
-"Actor": ""
+"Actor": "",
+"EnemyShip": "",
+"Stats": ""
 }
 
 [application]
@@ -27,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneManager="*res://autoloads/scene_manager.tscn"
+Signalbus="*res://autoloads/signalbus.gd"
 
 [display]
 
