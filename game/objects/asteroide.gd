@@ -18,7 +18,9 @@ func _on_body_entered(body: Node) -> void:
 		# or body is player
 		body.take_damage()
 		_anim_player.play("destroyed")
-	elif body is get_script(): # another astroid
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is get_script(): # another astroid
 		_direction = -_direction # bounce
 
 func _on_animation_finished(anim_name: String) -> void:
