@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game/main.gd" type="Script" id=1]
 [ext_resource path="res://game/objects/enemy_star.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://game/Actors/PlayerShip.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/minimap.gd" type="Script" id=6]
 [ext_resource path="res://game/Actors/EnemyShip.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/UI/PlayerUI.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
@@ -47,6 +48,8 @@ margin_bottom = 50.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
+[node name="PlayerUI" parent="HUD" instance=ExtResource( 8 )]
+
 [node name="EnemyStar" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1468, -1416 )
 
@@ -62,13 +65,8 @@ position = Vector2( 2474, -1416 )
 [node name="PlayerStar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 334, 176 )
 
-[node name="PlayerCamera" parent="." instance=ExtResource( 4 )]
-scale = Vector2( 1e-05, 1e-05 )
-
-[node name="PlayerShip" parent="." instance=ExtResource( 5 )]
-position = Vector2( 335, 54 )
-
 [node name="Asteroides" type="Node2D" parent="."]
+position = Vector2( -294, -193 )
 
 [node name="DistanceDetectionTimer" type="Timer" parent="Asteroides"]
 wait_time = 2.0
@@ -76,5 +74,11 @@ autostart = true
 
 [node name="Node2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -6, 125 )
+rotation = 0.731293
 
+[node name="PlayerShip" parent="." instance=ExtResource( 5 )]
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 4 )]
+
+[connection signal="out_of_fuel" from="HUD/PlayerUI" to="." method="_on_PlayerUI_out_of_fuel"]
 [connection signal="timeout" from="Asteroides/DistanceDetectionTimer" to="." method="_on_asteroids_detection_timeout"]

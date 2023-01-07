@@ -12,4 +12,6 @@ func add_bullet(shooter):
 	
 	print(bullet.global_position.direction_to(shooter.weapon.get_global_position()))
 	bullet._direction = bullet.global_position.direction_to(shooter.weapon.get_global_position())
+	#This needs to be at the right angle using direction. 
+	bullet.rotation_degrees = bullet.global_position.angle_to(bullet._direction)
 	add_child(bullet)

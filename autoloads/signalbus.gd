@@ -1,6 +1,7 @@
 extends Node
 
 signal bullet_fired(who)
+signal player_hit()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

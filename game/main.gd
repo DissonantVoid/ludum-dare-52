@@ -29,7 +29,7 @@ func _spawn_asteroide():
 	var instance := _asteroide_scene.instance()
 	instance.connect("tree_exited", self, "_on_asteroide_destroyed")
 	
-	_asteroides_container.add_child(instance)
+	_asteroides_container.call_deferred("add_child", instance)
 	instance.global_position =\
 		_player.global_position + Vector2(_astroides_spawn_distance, 0).rotated(_rng.randf_range(0,TAU))
 	instance.setup(
@@ -53,3 +53,7 @@ func _on_asteroids_detection_timeout() -> void:
 		if distance_to_player > _max_asteroide_distance:
 			child.global_position =\
 				_player.global_position + Vector2(_astroides_spawn_distance, 0).rotated(_rng.randf_range(0,TAU))
+
+
+func _on_PlayerUI_out_of_fuel():
+	_player.queue_free()

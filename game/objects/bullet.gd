@@ -17,4 +17,8 @@ func _physics_process(delta):
 
 
 func _on_Bullet_body_entered(body):
-	pass # Replace with function body.
+	if body != bullet_owner:
+		if body.is_in_group("Player"):
+			print("Something.")
+			Signalbus.emit_signal("player_hit")
+			queue_free()
