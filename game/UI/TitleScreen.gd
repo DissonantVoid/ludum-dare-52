@@ -5,8 +5,7 @@ onready var _credits_panel : PanelContainer = $MarginContainer2/Credits
 const _credit_tween_time : float = 0.4
 
 func _on_start_pressed():
-	#SceneManager.change_scene("...")
-	pass
+	SceneManager.change_scene("res://game/main.tscn")
 
 func _on_tutorial_pressed():
 	pass
