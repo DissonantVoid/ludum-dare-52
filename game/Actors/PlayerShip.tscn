@@ -59,7 +59,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 
-[node name="PlayerShip" type="KinematicBody2D"]
+[node name="PlayerShip" type="KinematicBody2D" groups=["show_in_minimap"]]
 rotation = 1.5708
 script = ExtResource( 1 )
 

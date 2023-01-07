@@ -45,6 +45,13 @@ enabled=PoolStringArray( "res://addons/jamcountdown/plugin.cfg" )
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+
 [input]
 
 mouse_left={
