@@ -2,24 +2,17 @@ extends Node2D
 
 signal rolled
 
-enum FlickState{NEUTRAL, FLICKING, EXTENDED, RETRACT}
-var state = FlickState.NEUTRAL
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+enum FlickState{EXTENDED, RETRACTED}
+var state = FlickState.RETRACTED
 
-func extend_weapon():
+func toggle_weapon():
 	match state:
-		FlickState.NEUTRAL:
+		FlickState.RETRACTED:
 			$AnimationPlayer.play("Flick")
-			state = FlickState.FLICKING
-
-func retract_weapon():
-	match state:
+			state = FlickState.EXTENDED
 		FlickState.EXTENDED:
 			$AnimationPlayer.play("Retract")
-			state = FlickState.RETRACT
-
+			state = FlickState.RETRACTED
 
 func _on_Area2D_body_entered(body):
 	emit_signal("rolled", body)

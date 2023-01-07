@@ -4,22 +4,19 @@ var velocity = Vector2.ZERO
 var speed = 500
 var accelerate = 2000
 onready var weapon = get_node("Roller")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up") 
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up") 
 	input_vector = input_vector.normalized()
-	velocity = velocity.move_toward(input_vector * speed, accelerate * delta)
-	#The position 2D needs to be pointed at the Mouse.
-	#The entire body is being used as a pivot
-	#So what math should be put to work on this?
 	
-	look_at(get_global_mouse_position() - $Position2D.position)
+	look_at(get_global_mouse_position())
+	
+	velocity = velocity.move_toward(input_vector * speed, accelerate * delta)
 	velocity = move_and_slide(velocity, Vector2.ZERO)
-	if Input.is_action_just_pressed("mouse_left"):
-		weapon.extend_weapon()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_left"):
+		weapon.toggle_weapon()
 		Signalbus.emit_signal("bullet_fired", self)
