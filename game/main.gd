@@ -3,7 +3,7 @@ extends Node2D
 const _asteroide_scene : PackedScene = preload("res://game/objects/asteroide.tscn")
 
 onready var _asteroides_container : Node2D = $Asteroides
-onready var _player : Node2D = $DUMMY # TEMP
+onready var _player : Node2D = $PlayerShip
 
 const _start_asteroides : int = 12
 const _max_asteroide_distance : float = 1100.0 # respawn after they get this far from player

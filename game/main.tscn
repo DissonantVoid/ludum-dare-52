@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/main.gd" type="Script" id=1]
 [ext_resource path="res://game/objects/enemy_star.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/objects/player_star.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/objects/player_camera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://game/DUMMY.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://game/objects/enemy_base.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/Actors/PlayerShip.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,21 +27,8 @@ position = Vector2( 334, 176 )
 [node name="PlayerCamera" parent="." instance=ExtResource( 4 )]
 scale = Vector2( 1e-05, 1e-05 )
 
-[node name="DUMMY" type="Node2D" parent="."]
-position = Vector2( 320, 36 )
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="DUMMY"]
-texture = ExtResource( 6 )
-
-[node name="EnemyBass" parent="." instance=ExtResource( 7 )]
-position = Vector2( -235, -344 )
-
-[node name="EnemyBass2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -398, -136 )
-
-[node name="EnemyBass3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -203, -200 )
+[node name="PlayerShip" parent="." instance=ExtResource( 5 )]
+position = Vector2( 335, 54 )
 
 [node name="Asteroides" type="Node2D" parent="."]
 

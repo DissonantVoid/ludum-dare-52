@@ -1,7 +1,6 @@
 extends Camera2D
 
-# THIS IS TEMPORARY
-onready var _player : Node2D = $"../DUMMY"
+onready var _player : Node2D = $"../PlayerShip"
 
 var _player_last_pos : Vector2 = Vector2.ZERO
 const _direction_offset : float = 80.0

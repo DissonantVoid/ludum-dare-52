@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	global_position += _direction * _speed * delta
 
 func _on_body_entered(body: Node) -> void:
-	if (body is preload("res://game/objects/enemy_base.gd")):
+	if body is preload("res://game/Actors/Actor.gd"):
 		# or body is player
 		body.take_damage()
 		_anim_player.play("destroyed")
