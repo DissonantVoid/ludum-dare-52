@@ -1,6 +1,6 @@
-extends Control
+extends MarginContainer
 
-onready var _credits_panel : PanelContainer = $Credits
+onready var _credits_panel : PanelContainer = $MarginContainer2/Credits
 
 func _on_start_pressed():
 	#SceneManager.change_scene("...")
