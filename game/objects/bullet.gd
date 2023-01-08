@@ -20,5 +20,6 @@ func _on_Bullet_body_entered(body):
 	if body != bullet_owner:
 		if body.is_in_group("Player"):
 			print("Something.")
-			Signalbus.emit_signal("player_hit")
+			# Signalbus.emit_signal("player_hit")
 			queue_free()
+			# freeing the player breaks the camera

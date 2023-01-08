@@ -6,7 +6,7 @@ var _player_last_pos : Vector2 = Vector2.ZERO
 const _direction_offset : float = 80.0
 
 func _physics_process(delta):
-	var player_pos : Vector2 = _player.global_position
+	var player_pos : Vector2 = _player.get_global_position()
 	var direction : Vector2 = (player_pos - _player_last_pos).normalized()
 	
 	global_position = lerp(

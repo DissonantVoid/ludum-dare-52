@@ -5,14 +5,15 @@ signal rolled
 enum FlickState{EXTENDED, RETRACTED}
 var state = FlickState.RETRACTED
 
-func toggle_weapon():
-	match state:
-		FlickState.RETRACTED:
-			$AnimationPlayer.play("Flick")
-			state = FlickState.EXTENDED
-		FlickState.EXTENDED:
-			$AnimationPlayer.play("Retract")
-			state = FlickState.RETRACTED
+func extend_weapon():
+	if state == FlickState.RETRACTED:
+		$AnimationPlayer.play("Retract")
+		state = FlickState.RETRACTED
+
+func retract_weapon():
+	if state == FlickState.EXTENDED:
+		$AnimationPlayer.play("Flick")
+		state = FlickState.RETRACTED
 
 func _on_Area2D_body_entered(body):
 	emit_signal("rolled", body)

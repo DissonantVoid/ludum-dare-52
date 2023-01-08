@@ -15,8 +15,11 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	velocity = velocity.move_toward(input_vector * speed, accelerate * delta)
 	
-	look_at(get_global_mouse_position() - $Position2D.position)
+	look_at(get_global_mouse_position())
+	# the subtraction caused an error and I wasn't sure what it was meant to be doing
+	
 	velocity = move_and_slide(velocity, Vector2.ZERO)
+	
 	if Input.is_action_pressed("mouse_left"):
 		weapon.extend_weapon()
 	else:
